@@ -1,0 +1,56 @@
+
+uint8_t rev_freq_ab[26] = 
+ {26,8,15,14,25,6,10,13,23,3,9,18,12,19,22,11,1,21,24,17,20,5,7,2,16,4};
+//a  b c  d  e  f g  h  i  j k l  m  n  o  p  q r  s  t  u  v w x y  z
+
+
+// returns true when all unique, must be sorted beforehand
+uint8_t uniq_sorted(uint8_t *x) {
+  return (x[0] != x[1]) &&
+         (x[1] != x[2]) &&
+         (x[2] != x[3]) &&
+         (x[3] != x[4]);
+}
+
+void sort(uint8_t *word) {
+  // insertion sort
+  uint8_t tmp;
+  uint8_t i, j;
+  for (i = 1; i < 5; ++i) {
+    tmp = word[i];
+    for (j = i; (j > 0) && (tmp < word[j - 1]); --j){
+      word[j] = word[j - 1];
+    }
+    word[j] = tmp;
+  }
+}
+
+uint32_t hash(uint8_t *x) {
+  return 26 * (26 * (26 * (26 * (x[0] - 'a') + x[1] - 'a') + x[2] - 'a') + x[3] - 'a') + x[4] - 'a';
+}
+
+void get_freqs(uint32_t *flat_vec, uint32_t n, uint32_t *freqs) {
+  uint32_t i;
+  uint32_t j;
+  for (i = 0; i < n; ++i)
+    for (j = 0; j < 26; ++j) 
+      freqs[j] += ((flat_vec[i] & (0x1 << j)) >> j);
+}
+
+int main() {
+  uint32_t *freqs;
+  uint64_t *w_vec;
+  uint32_t *flat_vec;
+  uint32_t count;
+
+  freqs = calloc(sizeof (uint32_t), 26);
+  w_vec = malloc(sizeof (uint64_t) * 8000);
+  flat_vec = calloc(sizeof (uint32_t), 8000);
+
+  count = l5_words(w_vec, flat_vec);
+  get_freqs(flat_vec, count, freqs);
+  printf("count=%d\n", count);
+  for (i = 0; i < 26; ++i) {
+    printf("%c:%d\n", i + 'a', freqs[i]);
+  }
+}
