@@ -10,7 +10,7 @@ An initial brute-force solution by Matt Parker,
 written in Python, found 538 solutions 
 in about 30 days' worth of computing time.
 
-This brute-force solution, written in C, finds 
+This recursive solution, written in C, finds 
 the same 538 solutions in less than a minute.
 
 ## Overview of approach and optimizations
@@ -21,7 +21,12 @@ from an existing dictionary, `words_alpha.txt`.
 ### Bitwise representation
 
 Words are stored as both their ASCII and 
-26-bit string representation.
+26-bit representation.
+
+    Example bitwise representation for "jacks"
+    uint32_i: 00000000000001000000011000000101
+                           |       ||      | |
+    encode  : ------zyxwvutsrqponmlkjihgfedcba
 
 If a word contains repeat letters, it is not stored. 
 Therefore, all the words in consideration contain 
