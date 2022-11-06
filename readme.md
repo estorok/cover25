@@ -38,7 +38,7 @@ be the same for every anagram of the same five letters.
 
 ### Recursive backtracking
 
-I do a depth-first search, trying each the words 
+I do a depth-first search, trying each of the words 
 that have no overlap with the set of currently selected
 words. When a fifth word that fits is found, 
 a solution is output. When a word does not fit 
