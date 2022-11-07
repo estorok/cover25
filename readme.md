@@ -64,7 +64,7 @@ Matt Parker's original solution.
 
 This code uses POSIX threads (pthreads) to leverage 
 multiprocessor capabilities for a substantial speedup.
-`NPROC` is hardcoded in the source and should be 
+`NUM_THREADS` is hardcoded in the source and should be 
 changed to 2-3x the number of 
 logical processors available locally. 
 Each thread receives an equal size
