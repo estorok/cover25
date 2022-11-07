@@ -1,3 +1,7 @@
+// This program finds sets of 5 english words that 
+// have 5 letters each and no letters in common.
+// written by Ethan Torok
+
 #include <fcntl.h>
 #include <pthread.h>
 #include <stdint.h>
