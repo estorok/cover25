@@ -92,8 +92,8 @@ and pthreads.
 
 Type `make` to produce the binary. `./cover25` to run.
 
-The python script `verify.py` checks that no lines have
-duplicate letters.
+The python script `verify.py` checks that no lines 
+in `stdin` have duplicate letters.
 
     $ ./cover25 | tee answers.txt
-    $ python3 verify.py
+    $ python3 verify.py <answers.txt
