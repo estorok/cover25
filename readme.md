@@ -1,8 +1,6 @@
 ## Introduction
 
-The challenge is to find 5 English words, 
-5 letters long each, that cover 
-25 out of 26 letters of the English alphabet 
+The challenge is [to find 5 English words, 5 letters long each, that cover 25 out of 26 letters of the English alphabet](https://youtu.be/_-AfhLQfb6w)
 ("how many guesses can you make in Wordle 
 without repeating letters").
 
@@ -80,10 +78,12 @@ mutex. This prevents interleaved printing.
 The file `sort_words.py` is a Python script 
 to produce a dictionary with words sorted 
 lexicographically by reverse character frequency.
-This may lead to an improvement in backtracking 
+I thought that this could lead to an improvement in backtracking 
 speed, as the widest branching of recursive calls 
 happens at the deepest part of the tree instead 
-of the shallowest.
+of the shallowest. When I tried the same search algorithm 
+using the new sort order, however, performance decreased, 
+so I reverted the change.
 
 ## Dependencies, building and running
 

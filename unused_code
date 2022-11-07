@@ -29,6 +29,9 @@ uint32_t hash(uint8_t *x) {
   return 26 * (26 * (26 * (26 * (x[0] - 'a') + x[1] - 'a') + x[2] - 'a') + x[3] - 'a') + x[4] - 'a';
 }
 
+
+// This code was used to determine the character frequencies 
+// in the set of words considered.
 void get_freqs(uint32_t *flat_vec, uint32_t n, uint32_t *freqs) {
   uint32_t i;
   uint32_t j;
